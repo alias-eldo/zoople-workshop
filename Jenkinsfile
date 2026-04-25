@@ -43,8 +43,9 @@ pipeline {
         stage('Setup Nginx') {
             steps {
                 sh '''
-                cd $NGINX_DIR
-                docker compose up -d
+                pwd
+                cd $NGINX_DIR 
+                ./nginx.sh $DOMAIN $CONTAINER_NAME $APP_PORT
                 '''
             }
         }
